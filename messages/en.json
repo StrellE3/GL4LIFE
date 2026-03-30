@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "products": "Products",
+    "groups": "Groups",
+    "sizeGuide": "Size Guide",
+    "admin": "Admin",
+    "login": "Login",
+    "logout": "Logout",
+    "profile": "My profile"
+  },
+  "home": {
+    "title": "RepCurator",
+    "subtitle": "The best rep product curation",
+    "cta": "Browse products"
+  },
+  "products": {
+    "title": "Products",
+    "search": "Search products...",
+    "filters": {
+      "category": "Category",
+      "batch": "Batch",
+      "sort": "Sort by",
+      "all": "All",
+      "newest": "Newest",
+      "priceAsc": "Price: low to high",
+      "priceDesc": "Price: high to low",
+      "bestRated": "Best rated"
+    },
+    "noResults": "No products found",
+    "qcCount": "{count} QC",
+    "buyVia": "Buy via"
+  },
+  "qc": {
+    "title": "QC Photos",
+    "upload": "Upload QC",
+    "verdict": {
+      "GL": "Green Light ✅",
+      "RL": "Red Light ❌"
+    },
+    "comment": "Comment",
+    "submit": "Submit",
+    "maxImages": "Maximum 6 images"
+  },
+  "groups": {
+    "title": "Groups",
+    "create": "Create group",
+    "join": "Join",
+    "requestAccess": "Request access",
+    "members": "{count} members",
+    "finds": "{count} finds",
+    "postFind": "Post a find",
+    "public": "Public",
+    "private": "Private"
+  },
+  "sizeGuide": {
+    "title": "Size Guide",
+    "specific": "Product-specific size guide"
+  },
+  "admin": {
+    "title": "Administration",
+    "products": "Products",
+    "users": "Users",
+    "groups": "Groups",
+    "sizeCharts": "Size charts",
+    "stats": {
+      "products": "Products",
+      "users": "Users",
+      "groups": "Groups",
+      "qcPhotos": "QC Photos"
+    }
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "login": "Login",
+    "loginWithGoogle": "Continue with Google",
+    "loginWithDiscord": "Continue with Discord",
+    "noAccount": "No account yet?",
+    "register": "Sign up",
+    "username": "Username"
+  },
+  "errors": {
+    "unauthorized": "Unauthorized",
+    "notFound": "Page not found",
+    "serverError": "Server error"
+  }
+}

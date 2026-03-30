@@ -1,0 +1,213 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Utilisateurs & Rôles ───
+
+enum UserRole {
+  READER
+  WRITER
+  MODERATOR
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  BANNED
+  SUSPENDED
+}
+
+model User {
+  id            String      @id @default(uuid())
+  email         String      @unique
+  username      String      @unique
+  avatarUrl     String?
+  role          UserRole    @default(READER)
+  status        UserStatus  @default(ACTIVE)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  qcPhotos      QCPhoto[]
+  groupsCreated Group[]     @relation("GroupCreator")
+  memberships   GroupMember[]
+  posts         GroupPost[]
+  postLikes     PostLike[]
+  comments      Comment[]
+}
+
+// ─── Produits ───
+
+model Category {
+  id        String    @id @default(uuid())
+  name      String    @unique
+  nameFr    String
+  nameEn    String
+  nameCn    String
+  slug      String    @unique
+  products  Product[]
+  sizeChart SizeChart?
+}
+
+model Product {
+  id            String    @id @default(uuid())
+  name          String
+  nameEn        String
+  nameCn        String
+  slug          String    @unique
+  description   String?
+  descriptionEn String?
+  descriptionCn String?
+  price         Float
+  currency      String    @default("¥")
+  batch         String
+  seller        String
+  rating        Float     @default(0)
+  imageUrl      String?
+  images        String[]
+  weidianUrl    String?
+  taobaoUrl     String?
+  url1688       String?
+  sizes         String[]
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  categoryId    String
+  category      Category  @relation(fields: [categoryId], references: [id])
+  qcPhotos      QCPhoto[]
+  sizeOverrides SizeOverride[]
+
+  @@index([categoryId])
+  @@index([batch])
+}
+
+// ─── Photos QC ───
+
+enum QCVerdict {
+  GL
+  RL
+}
+
+model QCPhoto {
+  id        String     @id @default(uuid())
+  images    String[]
+  verdict   QCVerdict
+  comment   String?
+  createdAt DateTime   @default(now())
+
+  productId String
+  product   Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User       @relation(fields: [userId], references: [id])
+
+  @@index([productId])
+}
+
+// ─── Guide des Tailles ───
+
+model SizeChart {
+  id         String   @id @default(uuid())
+  headers    String[]
+  rows       Json
+  updatedAt  DateTime @updatedAt
+
+  categoryId String   @unique
+  category   Category @relation(fields: [categoryId], references: [id])
+}
+
+model SizeOverride {
+  id        String   @id @default(uuid())
+  sizeLabel String
+  values    Json
+
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([productId, sizeLabel])
+}
+
+// ─── Groupes Communautaires ───
+
+enum GroupType {
+  PUBLIC
+  PRIVATE
+}
+
+enum MemberRole {
+  MEMBER
+  MODERATOR
+  OWNER
+}
+
+model Group {
+  id          String    @id @default(uuid())
+  name        String
+  description String?
+  type        GroupType @default(PUBLIC)
+  avatarUrl   String?
+  createdAt   DateTime  @default(now())
+
+  creatorId   String
+  creator     User      @relation("GroupCreator", fields: [creatorId], references: [id])
+  members     GroupMember[]
+  posts       GroupPost[]
+
+  @@index([type])
+}
+
+model GroupMember {
+  id       String     @id @default(uuid())
+  role     MemberRole @default(MEMBER)
+  joinedAt DateTime   @default(now())
+
+  userId   String
+  user     User       @relation(fields: [userId], references: [id])
+  groupId  String
+  group    Group      @relation(fields: [groupId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, groupId])
+}
+
+model GroupPost {
+  id        String   @id @default(uuid())
+  title     String
+  content   String?
+  price     String?
+  link      String?
+  imageUrl  String?
+  createdAt DateTime @default(now())
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  groupId   String
+  group     Group    @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  likes     PostLike[]
+  comments  Comment[]
+
+  @@index([groupId])
+}
+
+model PostLike {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+  postId String
+  post   GroupPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, postId])
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  content   String
+  createdAt DateTime @default(now())
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  postId    String
+  post      GroupPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+}

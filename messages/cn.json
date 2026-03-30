@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "products": "产品",
+    "groups": "群组",
+    "sizeGuide": "尺码指南",
+    "admin": "管理",
+    "login": "登录",
+    "logout": "退出",
+    "profile": "我的主页"
+  },
+  "home": {
+    "title": "RepCurator",
+    "subtitle": "最好的代购产品精选",
+    "cta": "浏览产品"
+  },
+  "products": {
+    "title": "产品",
+    "search": "搜索产品...",
+    "filters": {
+      "category": "分类",
+      "batch": "批次",
+      "sort": "排序",
+      "all": "全部",
+      "newest": "最新",
+      "priceAsc": "价格从低到高",
+      "priceDesc": "价格从高到低",
+      "bestRated": "评分最高"
+    },
+    "noResults": "未找到产品",
+    "qcCount": "{count} QC",
+    "buyVia": "购买渠道"
+  },
+  "qc": {
+    "title": "质检照片",
+    "upload": "上传质检",
+    "verdict": {
+      "GL": "绿灯 ✅",
+      "RL": "红灯 ❌"
+    },
+    "comment": "评论",
+    "submit": "提交",
+    "maxImages": "最多6张图片"
+  },
+  "groups": {
+    "title": "群组",
+    "create": "创建群组",
+    "join": "加入",
+    "requestAccess": "申请加入",
+    "members": "{count} 成员",
+    "finds": "{count} 发现",
+    "postFind": "发布发现",
+    "public": "公开",
+    "private": "私密"
+  },
+  "sizeGuide": {
+    "title": "尺码指南",
+    "specific": "此商品专属尺码指南"
+  },
+  "admin": {
+    "title": "管理后台",
+    "products": "产品",
+    "users": "用户",
+    "groups": "群组",
+    "sizeCharts": "尺码表",
+    "stats": {
+      "products": "产品",
+      "users": "用户",
+      "groups": "群组",
+      "qcPhotos": "质检照片"
+    }
+  },
+  "auth": {
+    "email": "邮箱",
+    "password": "密码",
+    "login": "登录",
+    "loginWithGoogle": "使用Google登录",
+    "loginWithDiscord": "使用Discord登录",
+    "noAccount": "还没有账号？",
+    "register": "注册",
+    "username": "用户名"
+  },
+  "errors": {
+    "unauthorized": "未授权访问",
+    "notFound": "页面未找到",
+    "serverError": "服务器错误"
+  }
+}

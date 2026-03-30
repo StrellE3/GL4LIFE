@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "products": "Produits",
+    "groups": "Groupes",
+    "sizeGuide": "Guide des tailles",
+    "admin": "Admin",
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "profile": "Mon profil"
+  },
+  "home": {
+    "title": "RepCurator",
+    "subtitle": "La meilleure curation de produits rep",
+    "cta": "Voir les produits"
+  },
+  "products": {
+    "title": "Produits",
+    "search": "Rechercher un produit...",
+    "filters": {
+      "category": "Catégorie",
+      "batch": "Batch",
+      "sort": "Trier par",
+      "all": "Tous",
+      "newest": "Plus récent",
+      "priceAsc": "Prix croissant",
+      "priceDesc": "Prix décroissant",
+      "bestRated": "Meilleure note"
+    },
+    "noResults": "Aucun produit trouvé",
+    "qcCount": "{count} QC",
+    "buyVia": "Acheter via"
+  },
+  "qc": {
+    "title": "Photos QC",
+    "upload": "Uploader des QC",
+    "verdict": {
+      "GL": "Green Light ✅",
+      "RL": "Red Light ❌"
+    },
+    "comment": "Commentaire",
+    "submit": "Soumettre",
+    "maxImages": "Maximum 6 images"
+  },
+  "groups": {
+    "title": "Groupes",
+    "create": "Créer un groupe",
+    "join": "Rejoindre",
+    "requestAccess": "Demander l'accès",
+    "members": "{count} membres",
+    "finds": "{count} trouvailles",
+    "postFind": "Publier une trouvaille",
+    "public": "Public",
+    "private": "Privé"
+  },
+  "sizeGuide": {
+    "title": "Guide des tailles",
+    "specific": "Guide spécifique à cet article"
+  },
+  "admin": {
+    "title": "Administration",
+    "products": "Produits",
+    "users": "Utilisateurs",
+    "groups": "Groupes",
+    "sizeCharts": "Guides de tailles",
+    "stats": {
+      "products": "Produits",
+      "users": "Utilisateurs",
+      "groups": "Groupes",
+      "qcPhotos": "Photos QC"
+    }
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Mot de passe",
+    "login": "Se connecter",
+    "loginWithGoogle": "Continuer avec Google",
+    "loginWithDiscord": "Continuer avec Discord",
+    "noAccount": "Pas encore de compte ?",
+    "register": "S'inscrire",
+    "username": "Nom d'utilisateur"
+  },
+  "errors": {
+    "unauthorized": "Accès non autorisé",
+    "notFound": "Page introuvable",
+    "serverError": "Erreur serveur"
+  }
+}
